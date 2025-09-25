@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TALENTIQ - AI HR Solutions for Modern Businesses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 2rem;
+        }
+        
+        .hero .btn {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .hero .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .hero .btn:hover {
+            background-color: var(--light-gray);
+        }
+        
+        .hero .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #f1f5f9;
+        }
+        
+        .testimonials-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .testimonials-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial {
+            min-width: 100%;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+        
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .testimonial-dot.active {
+            background-color: var(--primary);
+        }
+        
+        /* Partners Section */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .partner-logo {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .partner-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .partner-logo span {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        /* Booking Section */
+        .booking-section {
+            display: none;
+            background-color: #f8fafc;
+            padding: 100px 0;
+        }
+        
+        .booking-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .booking-form {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-btn i {
+            margin-right: 8px;
+        }
+        
+        .experts-section {
+            margin-top: 60px;
+        }
+        
+        .experts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .expert-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .expert-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .expert-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .expert-specialty {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .cta h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .cta p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta .btn {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .cta .btn:hover {
+            background-color: var(--light-gray);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 10px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">TALENTIQ</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#partners">Partners</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="btn" id="nav-book-btn">Book Consultation</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Transform Your HR with AI</h1>
+            <p>TALENTIQ bridges the gap between innovative AI solutions and your HR department. We help companies implement cutting-edge AI tools to streamline recruitment, enhance employee engagement, and drive organizational success.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn">Learn More</a>
+                <a href="#" class="btn btn-secondary" id="get-started-btn">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Implementation Strategy</h3>
+                    <p>We develop customized AI implementation roadmaps tailored to your HR needs and organizational structure.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3>Talent Acquisition Solutions</h3>
+                    <p>Leverage AI-powered tools to streamline your recruitment process and identify the best candidates faster.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Employee Analytics</h3>
+                    <p>Gain insights into employee performance, engagement, and retention with advanced AI analytics.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Training & Development</h3>
+                    <p>Implement AI-driven learning platforms that personalize employee development paths.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Vendor Selection</h3>
+                    <p>We help you choose the right AI partners and tools that align with your business objectives.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Ongoing Support</h3>
+                    <p>Continuous support and optimization services to ensure your AI solutions deliver maximum value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonials-container">
+                <div class="testimonials-slider" id="testimonials-slider">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            "TALENTIQ transformed our HR department. The AI tools they implemented reduced our hiring time by 40% and improved candidate quality significantly."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SM</div>
+                            <div>
+                                <h4>Sarah Mitchell</h4>
+                                <p>HR Director, TechSolutions Inc.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            "Working with TALENTIQ was a game-changer. Their expertise in AI implementation helped us create a more engaged and productive workforce."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">RJ</div>
+                            <div>
+                                <h4>Robert Johnson</h4>
+                                <p>CEO, InnovateCorp</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            "The AI analytics platform TALENTIQ recommended has given us unprecedented insights into employee performance and retention factors."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">ED</div>
+                            <div>
+                                <h4>Emily Davis</h4>
+                                <p>VP of People, GrowthStartups</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            "TALENTIQ's vendor selection service saved us countless hours of research and helped us choose the perfect AI tools for our specific needs."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MW</div>
+                            <div>
+                                <h4>Michael Williams</h4>
+                                <p>HR Manager, GlobalTech</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            "The training and implementation support from TALENTIQ ensured our team was fully prepared to leverage the new AI tools effectively."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">LT</div>
+                            <div>
+                                <h4>Lisa Thompson</h4>
+                                <p>Chief People Officer, FutureForward</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-controls">
+                    <div class="testimonial-dot active" data-slide="0"></div>
+                    <div class="testimonial-dot" data-slide="1"></div>
+                    <div class="testimonial-dot" data-slide="2"></div>
+                    <div class="testimonial-dot" data-slide="3"></div>
+                    <div class="testimonial-dot" data-slide="4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners">
+        <div class="container">
+            <h2>Our AI Partners</h2>
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <span>AI Recruit Pro</span>
+                </div>
+                <div class="partner-logo">
+                    <span>People Analytics AI</span>
+                </div>
+                <div class="partner-logo">
+                    <span>HR Bot Solutions</span>
+                </div>
+                <div class="partner-logo">
+                    <span>Talent Insight AI</span>
+                </div>
+                <div class="partner-logo">
+                    <span>EngageAI</span>
+                </div>
+                <div class="partner-logo">
+                    <span>SkillPath AI</span>
+                </div>
+                <div class="partner-logo">
+                    <span>PerformaBot</span>
+                </div>
+                <div class="partner-logo">
+                    <span>HR Vision AI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-section" id="booking">
+        <div class="container">
+            <a href="#" class="back-btn" id="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            <div class="booking-container">
+                <h2>Book a Consultation with Our Expert</h2>
+                <p>Fill out the form below and our AI HR specialist will contact you to schedule a meeting.</p>
+                <form class="booking-form" id="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name *</label>
+                            <input type="text" id="first-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name *</label>
+                            <input type="text" id="last-name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company">Company *</label>
+                            <input type="text" id="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="position">Position *</label>
+                            <input type="text" id="position" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">Primary Area of Interest *</label>
+                        <select id="interest" required>
+                            <option value="">Select an option</option>
+                            <option value="recruitment">AI Recruitment Tools</option>
+                            <option value="analytics">Employee Analytics</option>
+                            <option value="training">AI Training Platforms</option>
+                            <option value="engagement">Employee Engagement</option>
+                            <option value="strategy">AI Implementation Strategy</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Additional Information</label>
+                        <textarea id="message" placeholder="Tell us about your HR challenges and what you hope to achieve with AI..."></textarea>
+                    </div>
+                    <button type="submit" class="btn">Schedule Consultation</button>
+                </form>
+            </div>
+            
+            <div class="experts-section">
+                <h2>Meet Our AI HR Experts</h2>
+                <div class="experts-grid">
+                    <div class="expert-card">
+                        <div class="expert-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Dr. Anna Kovacs</h3>
+                        <div class="expert-specialty">AI Implementation Specialist</div>
+                        <p>10+ years experience in HR technology and AI integration</p>
+                    </div>
+                    <div class="expert-card">
+                        <div class="expert-avatar">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Markus Schmidt</h3>
+                        <div class="expert-specialty">HR Analytics Expert</div>
+                        <p>Specialized in predictive analytics for talent management</p>
+                    </div>
+                    <div class="expert-card">
+                        <div class="expert-avatar">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Sarah Johnson</h3>
+                        <div class="expert-specialty">Digital Transformation Lead</div>
+                        <p>Helps companies transition to AI-driven HR processes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Transform Your HR with AI?</h2>
+            <p>Schedule a consultation with our experts to discover how TALENTIQ can help your organization leverage AI for HR excellence.</p>
+            <a href="#" class="btn" id="cta-get-started">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TALENTIQ</h3>
+                    <p>Bridging the gap between innovative AI solutions and your HR department.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#partners">Partners</a>
+                    <a href="#booking">Book Consultation</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@talentiq.com</p>
+                    <p><i class="fas fa-phone"></i> +36 1 234 5678</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Andrássy út 12, Budapest 1061, Hungary</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 TALENTIQ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Testimonials Slider
+        const slider = document.getElementById('testimonials-slider');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        let currentSlide = 0;
+        
+        function showSlide(n) {
+            currentSlide = (n + 5) % 5; // Ensure it's within 0-4 range
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update active dot
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentSlide].classList.add('active');
+        }
+        
+        // Add click events to dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+        
+        // Auto-advance testimonials
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+        
+        // Get Started Button - Show Booking Section
+        document.getElementById('get-started-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('.booking-section').style.display = 'block';
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        document.getElementById('cta-get-started').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('.booking-section').style.display = 'block';
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        document.getElementById('nav-book-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('.booking-section').style.display = 'block';
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Back Button - Hide Booking Section
+        document.getElementById('back-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('.booking-section').style.display = 'none';
+            document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Form Submission
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your request! Our expert will contact you within 24 hours to schedule your consultation.');
+            this.reset();
+            document.querySelector('.booking-section').style.display = 'none';
+            document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if(this.getAttribute('href') === '#' || this.getAttribute('href') === '#booking') return;
+                
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
